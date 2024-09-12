@@ -14,7 +14,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	bool flag=TRUE;
-	char answ_bukv;
+	char answ_bukv, temp;
 	int answ_numb;
 	while (flag == TRUE)
 	{
@@ -33,6 +33,7 @@ int main()
 		cout << "--------------------------------------------------------------------\n";
 		cout << "Выберите ключ\n";
 		cin >> answ_numb;
+		system("cls");
 		switch (answ_numb)
 		{
 		case 1:
@@ -69,13 +70,21 @@ int main()
 			cout << "\nРаботы с таким ключом нет\n";
 		}
 		cout << "Хотите ли вы продолжить запуск других работ?\n";
-		cout << "Продолжить - Y\nЗавершить - N\n";
+		cout << "Продолжить - Y/y\nЗавершить - N/n\n";
 		cin >> answ_bukv;
-		if (answ_bukv == 'Y')
+		if (answ_bukv == 'Y' or answ_bukv == 'y')
 		{
 			flag = TRUE;
 		}
-		else {
+		else if (answ_bukv == 'N' or answ_bukv == 'n')
+		{
+			flag = FALSE;
+		}
+		else
+		 {
+			cout << "Введён неверный символ, программа завершает работу\n";
+			cout << "Введите любой символ и нажмите enter для выхода из программы\n";
+			cin >> temp;
 			flag = FALSE;
 		}
 		system("cls");
